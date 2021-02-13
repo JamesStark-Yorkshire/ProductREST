@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  php:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 480:80
+    volumes:
+      - ./:/var/www/html/
+
+  db:
+    container_name: mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+      MYSQL_DATABASE: dev
+    ports:
+      - 43306:3306
