@@ -7,7 +7,17 @@
 - Update: [PUT] /api/product/{productId}
 - Delete: [DELETE] /api/product/{productId}
 
-### Data format:
+### GET parameters:
+- page (page number for pagination, applied to List only)
+- locale (product details locate, applied to List and Show only)
+
+### Data payload (Create and Update):
+- product_name' => ['string', 'max:255'],
+- product_desc' => ['string'],
+- product_category' => ['string', 'max:20'],
+- product_price' => ['numeric', 'min:0', 'max:99999999']
+
+P.S. It would not update locale record
 
 ## Framework and packages
 - Lumen 8.x (https://lumen.laravel.com/docs/8.x)
